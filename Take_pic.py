@@ -1,7 +1,7 @@
 import cv2
 import os
 
-cap=cv2.VideoCapture(0)
+cap=cv2.VideoCapture(1)
 frame_count=0
 
 os.chdir('Images')

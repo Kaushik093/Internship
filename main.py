@@ -1,8 +1,8 @@
 import cv2
 
-import Take_pic as pic
+#import Take_pic as pic
 
-img=cv2.imread("obj88.jpg")
+img=cv2.imread("Images/obj88.jpg")
 
 # img=cv2.resize(img,(0,0),fx=0.1,fy=0.1)
 img_gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
