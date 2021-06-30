@@ -1,6 +1,6 @@
 import cv2
 
-#import Take_pic as pic
+import Take_pic as pic
 
 img=cv2.imread("Images/obj88.jpg")
 
