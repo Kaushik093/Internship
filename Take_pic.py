@@ -1,7 +1,10 @@
 import cv2
+import os
 
 cap=cv2.VideoCapture(0)
 frame_count=0
+
+os.chdir('Images')
 
 while(cap.isOpened()):
     ret,frame=cap.read()
