@@ -1,0 +1,6 @@
+devel_space: /home/jacob/Documents/Internship-1/ws_moveit/devel
+install: false
+install_space: /home/jacob/Documents/Internship-1/ws_moveit/install
+profile: default
+source_space: /home/jacob/Documents/Internship-1/ws_moveit/src
+workspace: /home/jacob/Documents/Internship-1/ws_moveit
