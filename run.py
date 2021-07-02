@@ -1,7 +1,7 @@
 import cv2
 import time
 
-wCam, hCam = 500, 370
+wCam, hCam = 510, 370
 
 capture = cv2.VideoCapture(0)
 capture.set(3, wCam)
