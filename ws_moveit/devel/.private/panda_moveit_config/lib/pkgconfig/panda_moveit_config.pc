@@ -1,4 +1,4 @@
-prefix=/home/jacob/Documents/Internship-1/ws_moveit/devel/.private/panda_moveit_config
+prefix=/home/jacob/Documents/Internship/ws_moveit/devel/.private/panda_moveit_config
 
 Name: panda_moveit_config
 Description: Description of panda_moveit_config

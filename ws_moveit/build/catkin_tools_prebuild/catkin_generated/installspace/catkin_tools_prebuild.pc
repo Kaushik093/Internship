@@ -1,4 +1,4 @@
-prefix=/home/jacob/Documents/Internship-1/ws_moveit/install
+prefix=/home/jacob/Documents/Internship/ws_moveit/install
 
 Name: catkin_tools_prebuild
 Description: Description of catkin_tools_prebuild

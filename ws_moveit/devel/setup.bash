@@ -1,1 +1,1 @@
-/home/jacob/Documents/Internship-1/ws_moveit/devel/.private/catkin_tools_prebuild/setup.bash
+/home/jacob/Documents/Internship/ws_moveit/devel/.private/catkin_tools_prebuild/setup.bash
