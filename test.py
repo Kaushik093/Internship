@@ -1,5 +1,6 @@
-import cv2
 import time
+
+import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
@@ -23,7 +24,8 @@ while True:
 
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    thresh_inv = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)[1]
+    thresh_inv = cv2.threshold(
+        gray, 0, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)[1]
 
     # Blur the image
     blur = cv2.GaussianBlur(thresh_inv, (1, 1), 0)
@@ -49,7 +51,6 @@ while True:
 
     cv2.putText(img, str(int(fps)) + " fps", (10, 70),
                 cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 0), 3)
-
 
     cv2.imshow("boxes", mask)
     cv2.imshow("final image", img)
