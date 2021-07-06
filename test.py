@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 
 wCam, hCam = 510, 370
 
-capture = cv2.VideoCapture('clips/box1.mp4')
+capture = cv2.VideoCapture(0)
 capture.set(3, wCam)
 capture.set(4, hCam)
 pTime = 0
