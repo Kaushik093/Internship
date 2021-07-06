@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-wCam, hCam = 510, 370
+wCam, hCam = 610, 470
 
 capture = cv2.VideoCapture(0)
 capture.set(3, wCam)
@@ -16,7 +16,7 @@ while True:
         break
 
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    blur = cv2.medianBlur(gray, 5)
+    blur = cv2.GaussianBlur(gray, (5, 5), 1)
     sharpen_kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
     sharpen = cv2.filter2D(blur, -1, sharpen_kernel)
 
@@ -28,10 +28,10 @@ while True:
     cnts = cnts[0] if len(cnts) == 2 else cnts[1]
 
     min_area = 100
-    max_area = 1500
+    max_area = 150000
     for c in cnts:
         area = cv2.contourArea(c)
-        if area > min_area and area < max_area:
+        if area > min_area and area < 510 * 370:
             x,y,w,h = cv2.boundingRect(c)
             cv2.rectangle(image, (x, y), (x + w, y + h), (36,255,12), 2)
 
