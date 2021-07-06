@@ -2,7 +2,6 @@ import time
 
 import cv2
 import numpy as np
-from matplotlib import pyplot as plt
 
 wCam, hCam = 510, 370
 
