@@ -15,8 +15,8 @@ while True:
         cv2.destroyAllWindows()
         break
 
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    blur = cv2.GaussianBlur(gray, (5, 5), 1)
+    grey = cv2.cvtColor(image, cv2.COLOR_BGR2grey)
+    blur = cv2.GaussianBlur(grey, (5, 5), 1)
     sharpen_kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
     sharpen = cv2.filter2D(blur, -1, sharpen_kernel)
 
