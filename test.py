@@ -1,5 +1,3 @@
-import time
-
 import cv2
 import numpy as np
 
@@ -8,48 +6,36 @@ wCam, hCam = 510, 370
 capture = cv2.VideoCapture(0)
 capture.set(3, wCam)
 capture.set(4, hCam)
-pTime = 0
-count = 0
-x = 0.0
-y = 0.0
 
 while True:
-    ret, img = capture.read()
+    ret, image = capture.read()
 
     if not ret:
         capture.release()
         cv2.destroyAllWindows()
         break
 
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    blur = cv2.medianBlur(gray, 5)
+    sharpen_kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
+    sharpen = cv2.filter2D(blur, -1, sharpen_kernel)
 
-    thresh_inv = cv2.threshold(
-        gray, 0, 255, cv2.THRESH_BINARY_INV+cv2.THRESH_OTSU)[1]
+    thresh = cv2.threshold(sharpen,160,255, cv2.THRESH_BINARY_INV)[1]
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3,3))
+    close = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel, iterations=2)
 
-    # Blur the image
-    blur = cv2.GaussianBlur(thresh_inv, (1, 1), 0)
+    cnts = cv2.findContours(close, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    cnts = cnts[0] if len(cnts) == 2 else cnts[1]
 
-    thresh = cv2.threshold(blur, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)[1]
+    min_area = 100
+    max_area = 1500
+    for c in cnts:
+        area = cv2.contourArea(c)
+        if area > min_area and area < max_area:
+            x,y,w,h = cv2.boundingRect(c)
+            cv2.rectangle(image, (x, y), (x + w, y + h), (36,255,12), 2)
 
-    # find contours
-    contours = cv2.findContours(
-        thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[0]
-
-    mask = np.ones(img.shape[:2], dtype="uint8") * 255
-    for c in contours:
-        # get the bounding rect
-        x, y, w, h = cv2.boundingRect(c)
-        cv2.rectangle(mask, (x, y), (x+w, y+h), (0, 0, 255), -1)
-
-    cTime = time.time()
-    fps = 1 / (cTime - pTime)
-    pTime = cTime
-
-    cv2.putText(img, str(int(fps)) + " fps", (10, 70),
-                cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 0), 3)
-
-    cv2.imshow("boxes", mask)
-    cv2.imshow("final image", img)
+    cv2.imshow('image', image)
 
     if cv2.waitKey(20) & 0xFF == ord('d'):
         cv2.destroyAllWindows()
