@@ -39,10 +39,7 @@ while True:
     for c in contours:
         # get the bounding rect
         x, y, w, h = cv2.boundingRect(c)
-        if 1000 < w*h < 100000:
-            cv2.rectangle(mask, (x, y), (x+w, y+h), (0, 0, 255), -1)
-
-    img = cv2.bitwise_and(img, img, mask=cv2.bitwise_not(mask))
+        cv2.rectangle(mask, (x, y), (x+w, y+h), (0, 0, 255), -1)
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
