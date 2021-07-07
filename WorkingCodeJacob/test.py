@@ -15,7 +15,7 @@ while True:
         cv2.destroyAllWindows()
         break
 
-    grey = cv2.cvtColor(image, cv2.COLOR_BGR2grey)
+    grey = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     blur = cv2.GaussianBlur(grey, (5, 5), 1)
     sharpen_kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
     sharpen = cv2.filter2D(blur, -1, sharpen_kernel)
@@ -31,7 +31,7 @@ while True:
     max_area = 150000
     for c in cnts:
         area = cv2.contourArea(c)
-        if area > min_area and area < 510 * 370:
+        if area > min_area and area < max_area:
             x,y,w,h = cv2.boundingRect(c)
             cv2.rectangle(image, (x, y), (x + w, y + h), (36,255,12), 2)
 
