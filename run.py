@@ -15,7 +15,7 @@ while True:
         cv2.destroyAllWindows()
         break
 
-    image = utils.get(image)
+    image, finalContour = utils.get(image)
 
     cv2.imshow('Detecting', image)
 
