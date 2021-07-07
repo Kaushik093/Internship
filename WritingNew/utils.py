@@ -9,7 +9,7 @@ def get(img):
     dilate = cv2.dilate(canny, kernel=kernel, iterations=3)
     erode = cv2.erode(dilate, kernel, iterations=2)
 
-    minarea = 1000
+    minarea = 10000
     finalContour = []
 
     contours, heirarchy = cv2.findContours(erode, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)

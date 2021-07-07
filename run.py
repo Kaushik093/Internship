@@ -3,7 +3,7 @@ import cv2
 
 wCam, hCam = 610, 470
 
-capture = cv2.VideoCapture('clips/box1.mp4')
+capture = cv2.VideoCapture(0)
 capture.set(3, wCam)
 capture.set(4, hCam)
 
