@@ -20,7 +20,6 @@ def get(img):
         if area > minarea:
             peri = cv2.arcLength(contour, True)
             approx = cv2.approxPolyDP(contour, 0.02 * peri, True)
-            bbox = cv2.boundingRect(approx)
 
             cv2.drawContours(img, contour, -1, (0, 0, 255), 3)
     
