@@ -1,5 +1,5 @@
 import cv2
-path='cascades/haarcascade_bottles.xml'
+path='haarcascade_bottles.xml'
 camNo=0
 objectname='Bottle'
 framewidth=640
