@@ -1,6 +1,6 @@
 import cv2
 
-path = 'cascade.xml'
+path = 'cascade\cascade.xml'
 camNo = 0
 objectname = 'Cup'
 framewidth = 640
