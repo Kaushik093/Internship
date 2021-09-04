@@ -1,6 +1,6 @@
 import cv2
 
-path = 'cascades/haarcascade_banana.xml'
+path = 'haarcascade_banana.xml'
 camNo = 0
 objectname = 'Banana'
 framewidth = 640
