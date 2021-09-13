@@ -1,5 +1,4 @@
 import sys
-import requests
 from datetime import datetime
 
 from formatting import format_msg

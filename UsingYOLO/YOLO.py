@@ -8,13 +8,13 @@ nmsThreshold= 0.2
 
 #### LOAD MODEL
 ## Coco Names
-classesFile = "coco.names"
+classesFile = "UsingYOLO\coco.names"
 classNames = []
 with open(classesFile, 'rt') as f:
     classNames = f.read().rstrip('n').split('n')
 
-modelConfiguration = "yolov3-tiny.cfg"
-modelWeights = "yolov3-tiny.weights"
+modelConfiguration = "UsingYOLO\yolov3-tiny.cfg"
+modelWeights = "UsingYOLO\yolov3-tiny.weights"
 
 net = cv.dnn.readNetFromDarknet(modelConfiguration, modelWeights)
 net.setPreferableBackend(cv.dnn.DNN_BACKEND_OPENCV)
