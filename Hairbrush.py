@@ -1,13 +1,13 @@
 import cv2
 
-path = 'cascades/haarcascade_banana.xml'
-# camNo = 0
-objectname = 'Banana'
+path = 'cascades/haarcascade_comb.xml'
+camNo = 0
+objectname = 'Hairbrush'
 framewidth = 640
 frameheight = 480
 color = (255, 0, 255)
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(camNo)
 cap.set(3, framewidth)
 cap.set(4, frameheight)
 
@@ -38,6 +38,10 @@ while True:
         minArea = cv2.getTrackbarPos("min area", "result")
         if area > minArea:
             cv2.rectangle(img, (x, y), (x + w, y + h), color, 3)
+
+            centre_x = int((x + x + h) / 2)
+            centre_y = int((y + y + h) / 2)
+            cv2.circle(img, (centre_x, centre_y), 10, (255, 100, 200), 4)
             cv2.putText(img, objectname, (x, y - 5), cv2.FONT_HERSHEY_COMPLEX, 1, color, 2)
 
 
