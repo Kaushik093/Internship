@@ -27,3 +27,5 @@ def read():
                 new.append(body_str)
     
     return new
+
+print(read())
