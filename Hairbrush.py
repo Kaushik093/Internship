@@ -1,18 +1,20 @@
 import cv2
 
-path = 'cascades/haarcascade_bottles.xml'
-# camNo = 0
-objectname = 'Bottle'
+path = 'cascades/haarcascade_comb.xml'
+camNo = 0
+objectname = 'Hairbrush'
 framewidth = 640
 frameheight = 480
 color = (255, 0, 255)
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(camNo)
 cap.set(3, framewidth)
 cap.set(4, frameheight)
 
+
 def empty(a):
     pass
+
 
 cv2.namedWindow("result")
 cv2.resizeWindow("result", framewidth, frameheight + 100)
@@ -29,17 +31,17 @@ while True:
     s, img = cap.read()
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     scaleval = 1 + (cv2.getTrackbarPos("scale", "result") / 1000)
-    neig = cv2.getTrackbarPos("neighbour", "result")
+    neig = cv2.getTrackbarPos("neig", "result")
     objects = cascade.detectMultiScale(gray, scaleval, neig)
     for (x, y, w, h) in objects:
         area = w * h
         minArea = cv2.getTrackbarPos("min area", "result")
         if area > minArea:
             cv2.rectangle(img, (x, y), (x + w, y + h), color, 3)
-            centre_x=int((x+x+h)/2)
-            centre_y=int((y+y+h)/2)
-            cv2.circle(img,(centre_x,centre_y),10,(255,100,200),4)
 
+            centre_x = int((x + x + h) / 2)
+            centre_y = int((y + y + h) / 2)
+            cv2.circle(img, (centre_x, centre_y), 10, (255, 100, 200), 4)
             cv2.putText(img, objectname, (x, y - 5), cv2.FONT_HERSHEY_COMPLEX, 1, color, 2)
 
 

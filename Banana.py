@@ -7,7 +7,7 @@ framewidth = 640
 frameheight = 480
 color = (255, 0, 255)
 
-cap = cv2.VideoCapture(camNo)
+cap = cv2.VideoCapture(1)
 cap.set(3, framewidth)
 cap.set(4, frameheight)
 
@@ -39,6 +39,7 @@ while True:
         if area > minArea:
             cv2.rectangle(img, (x, y), (x + w, y + h), color, 3)
             cv2.putText(img, objectname, (x, y - 5), cv2.FONT_HERSHEY_COMPLEX, 1, color, 2)
+
 
     cv2.imshow("result", img)
 
