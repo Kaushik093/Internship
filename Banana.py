@@ -47,4 +47,5 @@ def banana():
         cv2.imshow("result", img)
 
         if cv2.waitKey(1) & 0XFF == ord('q'):
+            cv2.destroyAllWindows()
             break

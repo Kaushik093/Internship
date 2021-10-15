@@ -8,3 +8,6 @@ function brush() {
 function bottle() {
 	eel.c()
 }
+function exit() {
+	eel.d()
+}
