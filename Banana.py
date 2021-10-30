@@ -7,7 +7,6 @@ def banana():
     framewidth = 640
     frameheight = 480
     color = (255, 0, 255)
-
     cap = cv2.VideoCapture(0)
     cap.set(3, framewidth)
     cap.set(4, frameheight)
