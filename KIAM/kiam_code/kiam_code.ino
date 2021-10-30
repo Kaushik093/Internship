@@ -9,9 +9,9 @@ int i;
 
 //****** Setup IK variables ******
 
-float ShoulderLength = 6.0;
+float ShoulderLength = 12;
 float ElbowLength = 11.5;
-float WristLength = 4.0;
+float WristLength = 12.7;
 float Hypot, Slope, CirclePointX, CirclePointY;
 float x1 = 10.0;//Target end point.10.6
 float y1 = 7.0;//Target end point.7.5
