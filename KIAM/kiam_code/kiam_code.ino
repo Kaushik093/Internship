@@ -1,10 +1,7 @@
-#include <Arduino.h>
 #include <Servo.h>
 
 
-Servo BasePan, GripTilt, ShoulderTilt, ElbowTilt, WristTilt; // create servo object to control a servo.
-//Servo counting goes from 0 to 4
-//Grip = 0  Wrist = 1  Elbow = 2   Shoulder = 3  Base = 4
+Servo BasePan, GripTilt, ShoulderTilt, ElbowTilt, WristTilt; // create servo object to control a servo
 
 int pos, CurrentAngle;
 int i;
@@ -12,9 +9,9 @@ int i;
 
 //****** Setup IK variables ******
 
-float ShoulderLength = 6.0;
-float ElbowLength = 4.0;
-float WristLength = 4.0;
+float ShoulderLength = 12;
+float ElbowLength = 11.5;
+float WristLength = 12.7;
 float Hypot, Slope, CirclePointX, CirclePointY;
 float x1 = 10.0;//Target end point.10.6
 float y1 = 7.0;//Target end point.7.5
@@ -268,7 +265,7 @@ void Calc_Point() {
   //***************************************************************
 
   /*
-  Use: sqrt (-1);  // Set to not a number...nan.
+    Use: sqrt (-1);  // Set to not a number...nan.
   */
 
   Serial.println();
